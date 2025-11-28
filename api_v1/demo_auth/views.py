@@ -102,7 +102,7 @@ def get_session_data(
 @router.post("/login-cookie/")
 def demo_auth_login_set_cookie(
     response: Response,
-    username: str = Depends(get_auth_user_username),
+    username: str = Depends(get_username_by_static_auth_token),
 ):
     session_id = generate_session_id()
     COOKIES[session_id] = {
